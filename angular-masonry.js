@@ -114,7 +114,7 @@
               itemSelector: attrs.itemSelector || '.masonry-brick',
               columnWidth: parseInt(attrs.columnWidth, 10) || attrs.columnWidth
             }, attrOptions || {});
-          element.masonry(options);
+          element[0].masonry(options);
           var loadImages = scope.$eval(attrs.loadImages);
           ctrl.loadImages = loadImages !== false;
           var preserveOrder = scope.$eval(attrs.preserveOrder);
@@ -129,7 +129,7 @@
               }
             });
           }
-          scope.$emit('masonry.created', element);
+          scope.$emit('masonry.created', element[0]);
           scope.$on('$destroy', ctrl.destroy);
         }
       }
